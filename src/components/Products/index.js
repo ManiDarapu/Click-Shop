@@ -16,6 +16,7 @@ class Products extends Component {
     apiStatus: apiStatusConstants.initial,
     displayProduct: false,
     id: 0,
+    wishlist: [],
   }
 
   componentDidMount() {
@@ -111,7 +112,7 @@ class Products extends Component {
           </nav>
           {displayProduct ? (
             <>
-              <ProductItemDetails id={id} />
+              <ProductItemDetails id={id} wishlist={this.wishlist} />
               <button type="button" onClick={this.goBack} className="backBtn">
                 Back
               </button>
@@ -137,6 +138,14 @@ class Products extends Component {
         </div>
       </div>
     )
+  }
+
+  addToWishList = id => {
+    const {originalProductsList} = this.state
+    const likedProduct = originalProductsList.filter(each => each.id === id)
+    this.setState(prevState => ({
+      wishlist: [...(prevState.wishlist + likedProduct)],
+    }))
   }
 
   render() {
