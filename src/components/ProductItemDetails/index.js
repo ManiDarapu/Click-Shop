@@ -9,7 +9,11 @@ const apiStatusConstants = {
 }
 
 class ProductitemDetails extends Component {
-  state = {product: {}, apiStatus: apiStatusConstants.initial}
+  state = {
+    product: {},
+    apiStatus: apiStatusConstants.initial,
+    wishlisted: false,
+  }
 
   componentDidMount() {
     this.getProductItemDetails()
@@ -41,8 +45,14 @@ class ProductitemDetails extends Component {
     </div>
   )
 
+  onClickWish = () => {
+    this.setState(prevState => ({
+      wishlisted: !prevState.wishlisted,
+    }))
+  }
+
   renderSuccessView = () => {
-    const {product} = this.state
+    const {product, wishlisted} = this.state
     const {title, price, image, description, category} = product
     return (
       <div className="mainDiv1">
@@ -52,6 +62,22 @@ class ProductitemDetails extends Component {
           <h2>Price: ${price}</h2>
           <p>Category: {category}</p>
           <p>Description: {description}</p>
+          <div className="buttonsDiv">
+            {wishlisted ? (
+              <button className="wish" type="button" onClick={this.onClickWish}>
+                {' '}
+                &#x2764; Wishlisted
+              </button>
+            ) : (
+              <button type="button" className="wish" onClick={this.onClickWish}>
+                Wishlist
+              </button>
+            )}
+
+            <button className="cart" type="button">
+              Add To Cart
+            </button>
+          </div>
         </div>
       </div>
     )
