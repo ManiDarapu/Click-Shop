@@ -24,3 +24,30 @@
 
   padding: 40px;
 }
+.wish {
+  cursor: pointer;
+  border-color: red;
+  color: red;
+  border-radius: 10px;
+  height: 100%;
+  width: 40%;
+  padding: 10px;
+}
+.cart {
+  cursor: pointer;
+  background-color: green;
+  color: white;
+  border-radius: 10px;
+  border-color: transparent;
+  height: 100%;
+  width: 40%;
+  padding: 10px;
+}
+.buttonsDiv {
+  display: flex;
+  width: 70%;
+  height: 50%;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 20px;
+}
