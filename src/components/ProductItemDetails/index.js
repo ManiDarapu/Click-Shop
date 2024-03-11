@@ -32,7 +32,7 @@ class ProductitemDetails extends Component {
 
   renderLoadingView = () => (
     <div>
-      <img src="https://fakestoreapi.com/products" alt="loading..." />
+      <img src="https://cdn.dribbble.com/users/160117/screenshots/3197970/main.gif" alt="loading..." />
     </div>
   )
 
